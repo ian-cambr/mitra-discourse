@@ -1,3 +1,88 @@
+## FOR MITRA RESEARCH STUDENTS
+
+## Set up Virtual Machine and Ubuntu on Windows
+
+1. Install VirtualBox, this will host the Ubuntu Operating System
+  - Use this link
+  - https://download.virtualbox.org/virtualbox/7.0.14/VirtualBox-7.0.14-161095-Win.exe
+
+2. Install Ubuntu Package
+  - Go to webpage linked below and download Ubuntu 22.04 LTS (or most recent LTS Ubuntu package)
+  - https://ubuntu.com/download/desktop
+
+3. Set up Ubuntu in VirtualBox (Start video at 1:08 if you followed previous 2 steps)
+  ** IMPORTANT **
+  - Reccomended allocation of at least 40-50gb of storage for Ubuntu
+  - When making a username and password for your VM of Ubuntu make sure to write them down, they will be your login for Ubuntu
+
+  - Follow video below to set up Ubuntu inside VirtualBox
+  - https://www.youtube.com/watch?v=rJ9ysibH768
+
+4. If you do not have sudo access by default run the following commands in terminal
+  1. su -
+    - enter password you used in VirtualBox set up
+  2. apt-get install sudo
+    - in case sudo isn't installed for some reason
+  3. adduser "yourusername" sudo
+    - replace "yourusername" with the username you used in VirtualBox set up
+  4. Restart Ubuntu
+
+  - Now you should have sudo access, you can check by running
+    - sudo apt update
+
+
+
+## Set up Local Hosting of Mitra Webpage
+
+1. Follow Steps in Discourse Guide for Ubuntu Local Hosting
+  ** IMPORTANT **
+  - When creating a new admin on the last step write down the email and password used, this will be your login on the local host to obtain admin privileges
+
+  - When you get to the "Clone Discourse" Step, use "git clone https://github.com/ian-cambr/mitra-discourse.git ~/discourse
+
+  - This will clone the Mitra Discourse github repo instead of the example one in the guide
+
+  - Now just follow the steps in the guide below and you will have local host set up!!
+  - https://meta.discourse.org/t/install-discourse-on-ubuntu-or-debian-for-development/14727
+
+2. Updating Github Repository
+  - Once you have local host set up, go to your terminal and run the following commands
+  1. cd discourse/
+  2. git pull
+  - this will ensure you have the most up to date version of our local host
+
+## Run Local Host
+
+  1. To run local host go to your terminal and run the following commands
+    1. cd discourse/ 
+    2. ./run.sh
+      - If it is your first time running the local host and Ubuntu says you don't have permission run the following command in your terminal
+      1. chmod +rx ./run.sh
+      - now you should be able to follow the inital steps and run the local host
+  - Once the local host is running navigate to in your web browser
+  # http://localhost:4200
+
+## Cloning plugins
+1. (in terminal) cd discourse/plugins/
+2. (in terminal) git clone "github repository link"
+- So far we have one plug in so start by cloning https://github.com/ian-cambr/mitra-sorting.git (replace "github repository link" with this link)
+
+## Set up Theme and Plugin Component
+1. Run your local host and navigate to the website (see ##Run Local Host)
+2. At the top right corner of the website click log in and sign in with your admin account that you created
+3. Now that you're logged in, navigate to admin on the left sidebar and then press the customize tab at the top
+4. Now you should be in the themes tab, under themes press blue install button and find "Material Design Theme" under popular themes
+5. Now click on Material Design Theme and switch the "Color Palette" to "Material Dark"
+6. Next navigate to the Components tab (next to Themes) and press the blue install button
+7. Find "From a github repository" option and paste https://github.com/communiteq/plugin-outlets-theme-component and click install
+8. Now click on "Plug in Outlet Locations" and find "Include component on these themes"
+9. In the drop down menu find and select "Material Design Theme"
+10. Reload your local host and you should have a plug looking button in the top right, when you press it, it will highlight all the areas of the webpage we can add plug ins
+
+
+
+## Discourse
+
 <a href="https://www.discourse.org/">
   <img src="images/discourse-readme-logo.png" width="300px">
 </a>
