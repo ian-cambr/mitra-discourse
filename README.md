@@ -79,7 +79,15 @@
 9. In the drop down menu find and select "Material Design Theme"
 10. Reload your local host and you should have a plug looking button in the top right, when you press it, it will highlight all the areas of the webpage we can add plug ins
 
+## Resources for setting up a Cloud VM (Azure or otherwise):
 
+Option 1: Bitnami
+https://github.com/davidefornelli/azure-discourse
+
+Option 2: Ubuntu VM
+https://meta.discourse.org/t/setup-discourse-on-azure/89550
+https://github.com/discourse/discourse/blob/main/docs/INSTALL-cloud.md
+https://github.com/discourse/discourse/blob/main/docs/INSTALL-email.md
 
 ## Discourse
 
