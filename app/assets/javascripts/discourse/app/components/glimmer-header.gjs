@@ -4,7 +4,6 @@ import { action } from "@ember/object";
 import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import { inject as service } from "@ember/service";
 import { modifier } from "ember-modifier";
-import concatClass from "discourse/helpers/concat-class";
 import scrollLock from "discourse/lib/scroll-lock";
 import DiscourseURL from "discourse/lib/url";
 import { scrollTop } from "discourse/mixins/scroll-top";
@@ -17,13 +16,9 @@ import HamburgerDropdownWrapper from "./glimmer-header/hamburger-dropdown-wrappe
 import Icons from "./glimmer-header/icons";
 import SearchMenuWrapper from "./glimmer-header/search-menu-wrapper";
 import UserMenuWrapper from "./glimmer-header/user-menu-wrapper";
+import PluginOutlet from "./plugin-outlet";
 
 const SEARCH_BUTTON_ID = "search-button";
-
-let _customHeaderClasses = [];
-export function addCustomHeaderClass(className) {
-  _customHeaderClasses.push(className);
-}
 
 export default class GlimmerHeader extends Component {
   @service router;
@@ -51,10 +46,6 @@ export default class GlimmerHeader extends Component {
       );
     };
   });
-
-  get customHeaderClasses() {
-    return _customHeaderClasses.join(" ");
-  }
 
   @action
   headerKeyboardTrigger(msg) {
@@ -167,23 +158,28 @@ export default class GlimmerHeader extends Component {
   }
 
   <template>
-    <header
-      class={{concatClass this.customHeaderClasses "d-header"}}
-      {{this.appEventsListeners}}
-    >
+    <header class="d-header" {{this.appEventsListeners}}>
       <div class="wrap">
         <Contents
           @sidebarEnabled={{@sidebarEnabled}}
           @toggleHamburger={{this.toggleHamburger}}
           @showSidebar={{@showSidebar}}
         >
-          {{#unless this.currentUser}}
-            <AuthButtons
-              @showCreateAccount={{@showCreateAccount}}
-              @showLogin={{@showLogin}}
-              @canSignUp={{@canSignUp}}
-            />
-          {{/unless}}
+
+          <span class="header-buttons">
+            <PluginOutlet @name="before-header-buttons" />
+
+            {{#unless this.currentUser}}
+              <AuthButtons
+                @showCreateAccount={{@showCreateAccount}}
+                @showLogin={{@showLogin}}
+                @canSignUp={{@canSignUp}}
+              />
+            {{/unless}}
+
+            <PluginOutlet @name="after-header-buttons" />
+          </span>
+
           {{#if
             (not (and this.siteSettings.login_required (not this.currentUser)))
           }}
