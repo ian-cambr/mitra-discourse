@@ -122,6 +122,9 @@ To get your environment set up, follow the community setup guide for your operat
 1. If you're on Windows, try the [Windows 10 development guide](https://meta.discourse.org/t/beginners-guide-to-install-discourse-on-windows-10-for-development/75149).
 1. If you're looking to use a simpler Docker-based install, try the [Docker development guide](https://meta.discourse.org/t/install-discourse-for-development-using-docker/102009).
 
+## Plugin Development
+https://meta.discourse.org/t/developing-discourse-plugins-part-1-create-a-basic-plugin/30515?page=2
+
 If you're familiar with how Rails works and are comfortable setting up your own environment, you can also try out the [**Discourse Advanced Developer Guide**](docs/DEVELOPER-ADVANCED.md), which is aimed primarily at Ubuntu and macOS environments.
 
 Before you get started, ensure you have the following minimum versions: [Ruby 3.2+](https://www.ruby-lang.org/en/downloads/), [PostgreSQL 13](https://www.postgresql.org/download/), [Redis 7](https://redis.io/download). If you're having trouble, please see our [**TROUBLESHOOTING GUIDE**](docs/TROUBLESHOOTING.md) first!
