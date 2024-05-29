@@ -12,7 +12,7 @@
 
 3. Set up Ubuntu in VirtualBox (Start video at 1:08 if you followed previous 2 steps)
   ** IMPORTANT **
-  - Reccomended allocation of at least 40-50gb of storage for Ubuntu
+  - Recomended allocation of at least 40-50gb of storage for Ubuntu
   - When making a username and password for your VM of Ubuntu make sure to write them down, they will be your login for Ubuntu
 
   - Follow video below to set up Ubuntu inside VirtualBox
